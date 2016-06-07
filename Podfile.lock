@@ -1,0 +1,35 @@
+PODS:
+  - Bolts (1.7.0):
+    - Bolts/AppLinks (= 1.7.0)
+    - Bolts/Tasks (= 1.7.0)
+  - Bolts/AppLinks (1.7.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.7.0)
+  - FBSDKCoreKit (4.10.1):
+    - Bolts (~> 1.5)
+  - FBSDKLoginKit (4.10.1):
+    - FBSDKCoreKit
+  - NCMB (2.3.0):
+    - FBSDKLoginKit
+
+DEPENDENCIES:
+  - NCMB (from `https://github.com/natsumo/ncmb_ios.git`)
+
+EXTERNAL SOURCES:
+  NCMB:
+    :git: https://github.com/natsumo/ncmb_ios.git
+
+CHECKOUT OPTIONS:
+  NCMB:
+    :commit: 6e85b4cc492497e6031a97e9a96f196814048776
+    :git: https://github.com/natsumo/ncmb_ios.git
+
+SPEC CHECKSUMS:
+  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  FBSDKCoreKit: d2aaed5e9ab7d8d6301c533376a1fbff1cf3deb5
+  FBSDKLoginKit: 699ff169080e3072de4b9b0faca90bf23dc36deb
+  NCMB: fbbcac99f2820d59b319ec51f8f469ec58b75bbc
+
+PODFILE CHECKSUM: 517dd29f9ba1f9e9c39cef28d0618c915e92f91a
+
+COCOAPODS: 1.0.0.beta.5
