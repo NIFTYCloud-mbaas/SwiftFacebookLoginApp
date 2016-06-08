@@ -21,6 +21,7 @@
 
 ※上記内容で動作確認をしています。
 ※古いバージョンだと動作しないい可能性があります。
+※Simulatorでは動作しない可能性があります。実機ビルドが必要な場合は[こちら](http://qiita.com/natsumo/items/3f1dd0e7f5471bd4b7d9)をごらんください
 
 ## 手順
 ### 1. [ニフティクラウドmobile backend](http://mb.cloud.nifty.com/)の会員登録とログイン→アプリ作成
