@@ -139,14 +139,6 @@
 * FacebookSDKを使用するための処理を`Appdelegate.swift`に記述しています
 
 ```swift
-//
-//  AppDelegate.swift
-//  SwiftFacebookLoginApp
-//
-//  Created by Natsumo Ikeda on 2016/06/03.
-//  Copyright © 2016年 NIFTY Corporation. All rights reserved.
-//
-
 import UIKit
 import NCMB
 import FBSDKCoreKit
