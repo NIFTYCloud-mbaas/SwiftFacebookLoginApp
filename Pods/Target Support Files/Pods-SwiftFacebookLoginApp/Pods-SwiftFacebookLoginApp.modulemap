@@ -1,6 +1,0 @@
-framework module Pods_SwiftFacebookLoginApp {
-  umbrella header "Pods-SwiftFacebookLoginApp-umbrella.h"
-
-  export *
-  module * { export * }
-}
