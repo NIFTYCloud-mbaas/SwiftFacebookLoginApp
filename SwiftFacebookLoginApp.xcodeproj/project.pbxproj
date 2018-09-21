@@ -100,13 +100,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD45741F1D01412500F61A66 /* Build configuration list for PBXNativeTarget "SwiftFacebookLoginApp" */;
 			buildPhases = (
-				568D26B62598ADB39FE4145E /* [CP] Check Pods Manifest.lock */,
 				2B5DA15C88995188622AA939 /* 📦 Check Pods Manifest.lock */,
 				BD4574091D01412500F61A66 /* Sources */,
 				BD45740A1D01412500F61A66 /* Frameworks */,
 				BD45740B1D01412500F61A66 /* Resources */,
 				D2A7888EED0184DB3374F84E /* 📦 Embed Pods Frameworks */,
-				3BB797B68A62D12EA61D5396 /* [CP] Embed Pods Frameworks */,
+				61D25A7B87C61A965574B8E0 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,13 +122,12 @@
 		BD4574051D01412400F61A66 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "FUJITSU CLOUD TECHNOLOGIES LIMITED";
 				TargetAttributes = {
 					BD45740C1D01412500F61A66 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 52LV6A2Q7J;
 					};
 				};
 			};
@@ -180,46 +178,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		3BB797B68A62D12EA61D5396 /* [CP] Embed Pods Frameworks */ = {
+		61D25A7B87C61A965574B8E0 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftFacebookLoginApp/Pods-SwiftFacebookLoginApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/NCMB/NCMB.framework",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NCMB.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftFacebookLoginApp/Pods-SwiftFacebookLoginApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		568D26B62598ADB39FE4145E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SwiftFacebookLoginApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftFacebookLoginApp/Pods-SwiftFacebookLoginApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D2A7888EED0184DB3374F84E /* 📦 Embed Pods Frameworks */ = {
@@ -360,15 +331,12 @@
 			baseConfigurationReference = 77249E56E44877F10EE9B2BD /* Pods-SwiftFacebookLoginApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				INFOPLIST_FILE = SwiftFacebookLoginApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobilebackend.nifcloud.SwiftFacebookLoginApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SwiftFacebookLoginApp/SwiftFacebookLoginApp-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -377,14 +345,12 @@
 			baseConfigurationReference = 1EFE9861646AB1EBF4E488FC /* Pods-SwiftFacebookLoginApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				INFOPLIST_FILE = SwiftFacebookLoginApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobilebackend.nifcloud.SwiftFacebookLoginApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SwiftFacebookLoginApp/SwiftFacebookLoginApp-Bridging-Header.h";
 			};
 			name = Release;
 		};
