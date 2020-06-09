@@ -28,6 +28,7 @@
 		BD45741A1D01412500F61A66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD45741C1D01412500F61A66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDC3F5621D014C7500CE83EF /* LogoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
+		D22278E92153B5ED005EE00D /* SwiftFacebookLoginApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftFacebookLoginApp-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +88,7 @@
 				BD4574171D01412500F61A66 /* Assets.xcassets */,
 				BD4574191D01412500F61A66 /* LaunchScreen.storyboard */,
 				BD45741C1D01412500F61A66 /* Info.plist */,
+				D22278E92153B5ED005EE00D /* SwiftFacebookLoginApp-Bridging-Header.h */,
 			);
 			path = SwiftFacebookLoginApp;
 			sourceTree = "<group>";
@@ -122,7 +124,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = "NIFTY Corporation";
+				ORGANIZATIONNAME = "FUJITSU CLOUD TECHNOLOGIES LIMITED";
 				TargetAttributes = {
 					BD45740C1D01412500F61A66 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -333,7 +335,7 @@
 				INFOPLIST_FILE = SwiftFacebookLoginApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobilebackend.niftycloud.SwiftFacebookLoginApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilebackend.nifcloud.SwiftFacebookLoginApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -347,7 +349,7 @@
 				INFOPLIST_FILE = SwiftFacebookLoginApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobilebackend.niftycloud.SwiftFacebookLoginApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilebackend.nifcloud.SwiftFacebookLoginApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

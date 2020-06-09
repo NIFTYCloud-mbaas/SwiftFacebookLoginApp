@@ -8,6 +8,7 @@
 
 import UIKit
 import NCMB
+import FBSDKLoginKit
 
 class LogoutViewController: UIViewController {
     
@@ -19,9 +20,18 @@ class LogoutViewController: UIViewController {
     // Logoutボタン押下時の処理
     @IBAction func logoutBtn(sender: AnyObject) {
         print("ログアウトしました")
-        // ログアウト
-        NCMBUser.logOut()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        let fbManager = FBSDKLoginManager()
+        // 非同期でログアウト
+        NCMBUser.logOutInBackgroundWithBlock { (error) in
+            if (error != nil) {
+                //エラー処理
+                print("Logout error /(error)")
+            } else {
+                fbManager.logOut()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
