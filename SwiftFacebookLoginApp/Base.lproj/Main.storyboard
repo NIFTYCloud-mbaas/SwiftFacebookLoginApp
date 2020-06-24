@@ -55,6 +55,7 @@
                     </view>
                     <connections>
                         <outlet property="label" destination="5Wv-Bq-Swn" id="azU-ne-nbt"/>
+                        <segue destination="qH1-we-wpK" kind="show" identifier="login" id="Nvf-C3-ORR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BLX-qt-fIc" sceneMemberID="firstResponder"/>
@@ -69,13 +70,12 @@
                         <viewControllerLayoutGuide type="top" id="8dq-yD-nfC"/>
                         <viewControllerLayoutGuide type="bottom" id="3Do-O2-C9x"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="50Z-Mj-NKV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="login" id="50Z-Mj-NKV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJR-J1-hSb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJR-J1-hSb">
                                 <rect key="frame" x="110" y="155" width="194" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
@@ -84,13 +84,19 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MJR-J1-hSb" firstAttribute="top" secondItem="8dq-yD-nfC" secondAttribute="bottom" constant="155" id="P79-2v-Lj8"/>
+                            <constraint firstItem="MJR-J1-hSb" firstAttribute="centerX" secondItem="50Z-Mj-NKV" secondAttribute="centerX" id="ZKI-ow-RSD"/>
+                            <constraint firstItem="3Do-O2-C9x" firstAttribute="top" secondItem="MJR-J1-hSb" secondAttribute="bottom" constant="623" id="m6p-d0-xcX"/>
+                            <constraint firstItem="MJR-J1-hSb" firstAttribute="leading" secondItem="3X9-7v-ULD" secondAttribute="leading" constant="110" id="m75-cx-TAI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3X9-7v-ULD"/>
                     </view>
                     <navigationItem key="navigationItem" id="1Iz-NB-Q4X"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fXH-Qa-tyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116" y="764"/>
+            <point key="canvasLocation" x="965" y="104"/>
         </scene>
     </scenes>
     <resources>
