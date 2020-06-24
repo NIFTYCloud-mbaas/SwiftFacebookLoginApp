@@ -2,8 +2,8 @@
 //  LogoutViewController.swift
 //  SwiftFacebookLoginApp
 //
-//  Created by Natsumo Ikeda on 2016/06/03.
-//  Copyright 2017 FUJITSU CLOUD TECHNOLOGIES LIMITED All Rights Reserved.
+//  Created by cancc on 6/23/20.
+//  Copyright © 2020 FUJITSU CLOUD TECHNOLOGIES LIMITED All Rights Reserved.
 //
 
 import UIKit
@@ -20,15 +20,15 @@ class LogoutViewController: UIViewController {
     // Logoutボタン押下時の処理
     @IBAction func logoutBtn(sender: AnyObject) {
         print("ログアウトしました")
-        let fbManager = FBSDKLoginManager()
+        let fbManager = LoginManager()
         // 非同期でログアウト
-        NCMBUser.logOutInBackgroundWithBlock { (error) in
+        NCMBUser.logOutInBackground { (error) in
             if (error != nil) {
                 //エラー処理
-                print("Logout error /(error)")
+                print("Logout error \(String(describing: error))")
             } else {
                 fbManager.logOut()
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
             }
         }
         
@@ -41,3 +41,4 @@ class LogoutViewController: UIViewController {
     
     
 }
+
