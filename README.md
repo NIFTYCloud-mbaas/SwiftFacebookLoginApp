@@ -72,16 +72,15 @@
 ![画像13](/readme-img/013.png)
 
 * 「Quick Start for iOS」の画面が出ます
-* 一番下まスクロールして、「Bundle Identifier」を入力します。XcodeプロジェクトのBundle IDをコピペしてください
-* 次へをクリックします
+* 二番の「バンドルIDを追加する」を「Bundle Identifier」を入力します。XcodeプロジェクトのBundle IDをコピペしてください
+* 「Save」ボタンをクリックします
 
-![画像14](/readme-img/014.png)
+<img src="readme-img/024.png" alt="画像24" width="500px"> 
 
-* 一番上まで戻って、右上の「Skip Quick Start」をクリックします
+* ダッシュボードに戻ります。
 
 ![画像15](/readme-img/015.png)
 
-* ダッシュボードが表示されます
 * 「アプリ名」と「アプリID」をXcodeプロジェクトの`Info.plist`にコピペします
 
 ![画像16](/readme-img/016.png)
@@ -91,7 +90,7 @@
 
 ![画像23](/readme-img/023.png)
 
-* 最後に「アプリレビュー」をクリックし、「***アプリ名***を公開しますか？」を「はい」にしておきます
+* 最後に上の「開発中」を「ライブモード」に変更します。「ライブモードに切り替えますか？」を「モード切り替え」にしておきます
 
 ![画像18](/readme-img/018.png)
 
