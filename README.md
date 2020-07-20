@@ -69,9 +69,6 @@
 
 * iOSを選択し、アプリ名（任意）を入力し、「新しいFacebookアプリIDを作成」をクリックします
 * 「連絡先メールアドレス」と「カテゴリ」を入力して「アプリIDを作成」をクリックしてFacebookアプリを作成します
-
-![画像13](/readme-img/013.png)
-
 * 「Quick Start for iOS」の画面が出ます
 * 二番の「バンドルIDを追加する」を「Bundle Identifier」を入力します。XcodeプロジェクトのBundle IDをコピペしてください
 * 「Save」ボタンをクリックします
