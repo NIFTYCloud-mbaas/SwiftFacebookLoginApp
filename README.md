@@ -15,9 +15,10 @@
 ![画像2](/readme-img/002.png)
 
 ## 動作環境
-* Mac OS X 10.10(Yosemite)
-* Xcode ver. 7.2.1
-* iPhone6 ver. 8.2
+* Mac OS X 10.14.4 (Mojave)
+* Xcode ver. 11.3.1
+* iPhone7 ver. 13.5.1
+* Swift SDK v1.1.0
 
 ※上記内容で動作確認をしています。
 ※古いバージョンだと動作しないい可能性があります。
@@ -75,7 +76,7 @@
 * 二番の「バンドルIDを追加する」を「Bundle Identifier」を入力します。XcodeプロジェクトのBundle IDをコピペしてください
 * 「Save」ボタンをクリックします
 
-<img src="readme-img/024.png" alt="画像24" width="500px"> 
+<img src="readme-img/014.png" alt="画像14" width="800px"> 
 
 * ダッシュボードに戻ります。
 
@@ -180,25 +181,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //  LoginViewController.swift
 //  SwiftFacebookLoginApp
 //
-
 // Loginボタン押下時の処理
-@IBAction func FacebookLoginBtn(sender: AnyObject) {
-    NCMBFacebookUtils.logInWithReadPermission(["email"]) {(user, error) -> Void in
-        if (error != nil){
-            if (error.code == NCMBErrorFacebookLoginCancelled){
-                // Facebookのログインがキャンセルされた場合
-                    
-            }else{
-                // その他のエラーが発生した場合
-                    
-            }
-        }else{
-            // 会員登録とログイン後の処理
+    @IBAction func FacebookLoginBtn(sender: AnyObject) {
+        // labelを空にする
+        self.label.text = ""
+        if (AccessToken.current != nil) {
+            self.performSegue(withIdentifier: "login", sender: self)
+        } else {
+            let fbManager = LoginManager()
+            let permission = ["email", "public_profile"]
+            
+            fbManager.logIn(permissions: permission, from: self, handler: { (result, error) in
+                if (error != nil){
+                    if(result!.isCancelled){
+                        // Facebookのログインがキャンセルされた場合
+                    } else {
+                        // その他のエラーが発生した場合
+
+                    }
+                } else {
+                    // 会員登録とログイン後の処理
+                }
                 
+            })
+            
         }
+        
     }
-    
-}
 ```
 
 ```swift
@@ -209,8 +218,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // Logoutボタン押下時の処理
 @IBAction func logoutBtn(sender: AnyObject) {
-    // ログアウト
-    NCMBUser.logOut()
+    print("ログアウトしました")
+    let fbManager = LoginManager()
+    // 非同期でログアウト
+    NCMBUser.logOutInBackground { (error) in
+        if (error != nil) {
+            //エラー処理
+            print("Logout error \(String(describing: error))")
+        } else {
+            fbManager.logOut()
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     
 }
 ```
@@ -220,7 +239,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ![画像22](/readme-img/022.png)
 
-* もちろん直接FacebookSDKを呼ぶことも可能ですが、ニフクラ mobile backendSDKを呼べば裏でFacebookSDKを呼んで処理するNCMBFacebookUtilsメソッドが備わっているので、１つ呼べば、Facebookへのログインとニフクラ mobile backendへ会員情報保存が同時に行えるので一石二鳥というわけです
+* もちろん直接FacebookSDKを呼ぶことも可能ですが、ニフクラ mobile backendSDKを呼べば裏でFacebookSDKを呼んで処理するNCMBUserメソッドが備わっているので、１つ呼べば、Facebookへのログインとニフクラ mobile backendへ会員情報保存が同時に行えるので一石二鳥というわけです
 * また一度会員登録してしまえば、あとはニフクラ mobile backendの会員管理機能で処理が行えるので自前で会員管理システムを構築する必要がなくより楽に開発を行えます
 
 ### もっと深く知りたい方へ

@@ -57,7 +57,7 @@ class LoginViewController: UIViewController {
                         user.signUp(withFacebookToken: facebookInfo as [NSObject : AnyObject], with: { (error) in
                             if(error != nil){
                                 //会員登録に失敗した場合の処理
-                                print("Facebookの会員登録とログインに成功しました：\(String(describing: user.objectId))");
+                                print("Facebookの会員登録とログインに失敗しました：\(String(describing: user.objectId))");
                             } else {
                                 //会員登録に成功した場合の処理
                                 print("Facebookの会員登録とログインに成功しました：\(String(describing: user.objectId))");
