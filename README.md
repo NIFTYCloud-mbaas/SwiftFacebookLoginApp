@@ -15,9 +15,10 @@
 ![画像2](/readme-img/002.png)
 
 ## 動作環境
-* Mac OS X 10.10(Yosemite)
-* Xcode ver. 7.2.1
-* iPhone6 ver. 8.2
+* Mac OS X 10.14.4 (Mojave)
+* Xcode ver. 11.3.1
+* iPhone7 ver. 13.5.1
+* Swift SDK v1.1.0
 
 ※上記内容で動作確認をしています。
 ※古いバージョンだと動作しないい可能性があります。
@@ -68,20 +69,16 @@
 
 * iOSを選択し、アプリ名（任意）を入力し、「新しいFacebookアプリIDを作成」をクリックします
 * 「連絡先メールアドレス」と「カテゴリ」を入力して「アプリIDを作成」をクリックしてFacebookアプリを作成します
-
-![画像13](/readme-img/013.png)
-
 * 「Quick Start for iOS」の画面が出ます
-* 一番下まスクロールして、「Bundle Identifier」を入力します。XcodeプロジェクトのBundle IDをコピペしてください
-* 次へをクリックします
+* 二番の「バンドルIDを追加する」を「Bundle Identifier」を入力します。XcodeプロジェクトのBundle IDをコピペしてください
+* 「Save」ボタンをクリックします
 
-![画像14](/readme-img/014.png)
+<img src="readme-img/014.png" alt="画像14" width="800px"> 
 
-* 一番上まで戻って、右上の「Skip Quick Start」をクリックします
+* ダッシュボードに戻ります。
 
 ![画像15](/readme-img/015.png)
 
-* ダッシュボードが表示されます
 * 「アプリ名」と「アプリID」をXcodeプロジェクトの`Info.plist`にコピペします
 
 ![画像16](/readme-img/016.png)
@@ -91,7 +88,7 @@
 
 ![画像23](/readme-img/023.png)
 
-* 最後に「アプリレビュー」をクリックし、「***アプリ名***を公開しますか？」を「はい」にしておきます
+* 最後に上の「開発中」を「ライブモード」に変更します。「ライブモードに切り替えますか？」を「モード切り替え」にしておきます
 
 ![画像18](/readme-img/018.png)
 
@@ -181,22 +178,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //  LoginViewController.swift
 //  SwiftFacebookLoginApp
 //
-
 // Loginボタン押下時の処理
 @IBAction func FacebookLoginBtn(sender: AnyObject) {
-    NCMBFacebookUtils.logInWithReadPermission(["email"]) {(user, error) -> Void in
-        if (error != nil){
-            if (error.code == NCMBErrorFacebookLoginCancelled){
-                // Facebookのログインがキャンセルされた場合
-                    
-            }else{
-                // その他のエラーが発生した場合
-                    
+    // labelを空にする
+    self.label.text = ""
+    if (AccessToken.current != nil) {
+        self.performSegue(withIdentifier: "login", sender: self)
+    } else {
+        let fbManager = LoginManager()
+        let permission = ["email", "public_profile"]
+        
+        fbManager.logIn(permissions: permission, from: self, handler: { (result, error) in
+            if (error != nil){
+                if(result!.isCancelled){
+                    // Facebookのログインがキャンセルされた場合
+                    print("Facebookのログインがキャンセルされました")
+                    self.label.text = "Facebookのログインがキャンセルされました"
+                } else {
+                    // その他のエラーが発生した場合
+                    print("エラーが発生しました：\(String(describing: error))")
+                    self.label.text = "エラーが発生しました：\(String(describing: error))"
+                }
+            } else {
+                // 会員登録とログイン後の処理
+                if(result!.token?.userID != nil){
+                    let facebookInfo:NSDictionary = [
+                        "id":result!.token?.userID as Any,
+                        "access_token":result!.token!.tokenString,
+                        "expiration_date":result!.token!.expirationDate
+                    ]
+                    let user = NCMBUser()
+                    user.signUp(withFacebookToken: facebookInfo as [NSObject : AnyObject], with: { (error) in
+                        if(error != nil){
+                            //会員登録に失敗した場合の処理
+                            print("Facebookの会員登録とログインに失敗しました：\(String(describing: user.objectId))");
+                        } else {
+                            //会員登録に成功した場合の処理
+                            print("Facebookの会員登録とログインに成功しました：\(String(describing: user.objectId))");
+                            self.performSegue(withIdentifier: "login", sender: self)
+                        }
+                    })
+                } else {
+                    print("エラーが発生しました：\(String(describing: error))")
+                    self.label.text = "エラーが発生しました：\(String(describing: error))"
+                }
             }
-        }else{
-            // 会員登録とログイン後の処理
-                
-        }
+            
+        })
+        
     }
     
 }
@@ -210,10 +239,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // Logoutボタン押下時の処理
 @IBAction func logoutBtn(sender: AnyObject) {
-    // ログアウト
-    NCMBUser.logOut()
+    print("ログアウトしました")
+    let fbManager = LoginManager()
+    // 非同期でログアウト
+    NCMBUser.logOutInBackground { (error) in
+        if (error != nil) {
+            //エラー処理
+            print("Logout error \(String(describing: error))")
+        } else {
+            fbManager.logOut()
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     
 }
+
 ```
 
 ## 参考
@@ -221,7 +261,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ![画像22](/readme-img/022.png)
 
-* もちろん直接FacebookSDKを呼ぶことも可能ですが、ニフクラ mobile backendSDKを呼べば裏でFacebookSDKを呼んで処理するNCMBFacebookUtilsメソッドが備わっているので、１つ呼べば、Facebookへのログインとニフクラ mobile backendへ会員情報保存が同時に行えるので一石二鳥というわけです
+* もちろん直接FacebookSDKを呼ぶことも可能ですが、ニフクラ mobile backendSDKを呼べば裏でFacebookSDKを呼んで処理するNCMBUserメソッドが備わっているので、１つ呼べば、Facebookへのログインとニフクラ mobile backendへ会員情報保存が同時に行えるので一石二鳥というわけです
 * また一度会員登録してしまえば、あとはニフクラ mobile backendの会員管理機能で処理が行えるので自前で会員管理システムを構築する必要がなくより楽に開発を行えます
 
 ### もっと深く知りたい方へ

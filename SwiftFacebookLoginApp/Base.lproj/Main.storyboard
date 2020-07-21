@@ -1,46 +1,49 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="olL-HO-U8c">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="gcV-uo-60v">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="SwiftFacebookLoginApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="olL-HO-U8c" customClass="LoginViewController" customModule="SwiftFacebookLoginApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Oxv-xa-B2y"/>
+                        <viewControllerLayoutGuide type="bottom" id="GWN-NY-17J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b7J-lp-ntB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SwftFacebookLoginApp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KkN-4h-pjd">
-                                <rect key="frame" x="9" y="80" width="358" height="82"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SwftFacebookLoginApp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdv-FW-fHL">
+                                <rect key="frame" x="9" y="111" width="397" height="82"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Qah-C5-bGf">
-                                <rect key="frame" x="35" y="295" width="313" height="76"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rj8-tb-pyy">
+                                <rect key="frame" x="57" y="409" width="313" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="FacebookBtn"/>
                                 <connections>
-                                    <action selector="FacebookLoginBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e5y-Sj-WzA"/>
+                                    <action selector="FacebookLoginBtnWithSender:" destination="olL-HO-U8c" eventType="touchUpInside" id="pk9-Lw-xOP"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright 2017 FUJITSU CLOUD TECHNOLOGIES LIMITED All Rights Reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Eca-tc-x3w">
-                                <rect key="frame" x="4" y="636" width="368" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Copyright 2017 FUJITSU CLOUD TECHNOLOGIES LIMITED All Rights Reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MgE-wc-D0X">
+                                <rect key="frame" x="4" y="865" width="407" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3p6-QN-rJZ">
-                                <rect key="frame" x="14" y="406" width="347" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Wv-Bq-Swn">
+                                <rect key="frame" x="14" y="550" width="386" height="25"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -48,49 +51,55 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="fDK-tv-YJ8"/>
                     </view>
                     <connections>
-                        <outlet property="label" destination="3p6-QN-rJZ" id="y6T-Or-0Xq"/>
-                        <segue destination="wJg-ww-wGM" kind="modal" identifier="login" id="QNe-vH-0JX"/>
+                        <outlet property="label" destination="5Wv-Bq-Swn" id="azU-ne-nbt"/>
+                        <segue destination="qH1-we-wpK" kind="show" identifier="login" id="Nvf-C3-ORR"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BLX-qt-fIc" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="149" y="268"/>
+            <point key="canvasLocation" x="116" y="104"/>
         </scene>
         <!--Logout View Controller-->
-        <scene sceneID="qVY-UC-Raq">
+        <scene sceneID="JCU-cb-bDX">
             <objects>
-                <viewController id="wJg-ww-wGM" customClass="LogoutViewController" customModule="SwiftFacebookLoginApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KPd-3j-2CO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="qH1-we-wpK" customClass="LogoutViewController" customModule="SwiftFacebookLoginApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8dq-yD-nfC"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Do-O2-C9x"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="login" id="50Z-Mj-NKV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Uf5-cv-tkt">
-                                <rect key="frame" x="110" y="155" width="155" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJR-J1-hSb">
+                                <rect key="frame" x="110" y="155" width="194" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
-                                    <action selector="logoutBtn:" destination="wJg-ww-wGM" eventType="touchUpInside" id="skJ-vV-634"/>
+                                    <action selector="logoutBtnWithSender:" destination="qH1-we-wpK" eventType="touchUpInside" id="hPq-lB-EIn"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MJR-J1-hSb" firstAttribute="top" secondItem="8dq-yD-nfC" secondAttribute="bottom" constant="155" id="P79-2v-Lj8"/>
+                            <constraint firstItem="MJR-J1-hSb" firstAttribute="centerX" secondItem="50Z-Mj-NKV" secondAttribute="centerX" id="ZKI-ow-RSD"/>
+                            <constraint firstItem="3Do-O2-C9x" firstAttribute="top" secondItem="MJR-J1-hSb" secondAttribute="bottom" constant="623" id="m6p-d0-xcX"/>
+                            <constraint firstItem="MJR-J1-hSb" firstAttribute="leading" secondItem="3X9-7v-ULD" secondAttribute="leading" constant="110" id="m75-cx-TAI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3X9-7v-ULD"/>
                     </view>
-                    <navigationItem key="navigationItem" id="H3W-NP-lIx"/>
+                    <navigationItem key="navigationItem" id="1Iz-NB-Q4X"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KQ5-Ht-z8U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fXH-Qa-tyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="149.33333333333334" y="951.39999999999998"/>
+            <point key="canvasLocation" x="965" y="104"/>
         </scene>
     </scenes>
     <resources>
         <image name="FacebookBtn" width="666" height="162"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
 </document>

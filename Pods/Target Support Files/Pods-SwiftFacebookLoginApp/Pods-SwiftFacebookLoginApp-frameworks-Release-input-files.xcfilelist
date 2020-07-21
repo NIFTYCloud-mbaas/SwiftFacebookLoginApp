@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-SwiftFacebookLoginApp/Pods-SwiftFacebookLoginApp-frameworks.sh
+${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework
+${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework
+${BUILT_PRODUCTS_DIR}/NCMB/NCMB.framework
