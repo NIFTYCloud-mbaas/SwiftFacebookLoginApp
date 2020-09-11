@@ -48,20 +48,21 @@ class LoginViewController: UIViewController {
                 } else {
                     // 会員登録とログイン後の処理
                     if(result!.token?.userID != nil){
-                        let facebookInfo:NSDictionary = [
-                            "id":result!.token?.userID as Any,
-                            "access_token":result!.token!.tokenString,
-                            "expiration_date":result!.token!.expirationDate
-                        ]
+                       let facebookInfo = NCMBFacebookParameters(id: result!.token?.userID as! String, accessToken: result!.token!.tokenString, expirationDate: result!.token!.expirationDate)
+
                         let user = NCMBUser()
-                        user.signUp(withFacebookToken: facebookInfo as [NSObject : AnyObject], with: { (error) in
-                            if(error != nil){
+                        user.signUpWithFacebookToken(facebookParameters: facebookInfo, callback: { result in
+                            switch result{
+                            case let .failure(error):
                                 //会員登録に失敗した場合の処理
-                                print("Facebookの会員登録とログインに失敗しました：\(String(describing: user.objectId))");
-                            } else {
+                                print("Facebookの会員登録とログインに失敗しました：\(error)");
+
+                            case .success:
                                 //会員登録に成功した場合の処理
                                 print("Facebookの会員登録とログインに成功しました：\(String(describing: user.objectId))");
-                                self.performSegue(withIdentifier: "login", sender: self)
+                                DispatchQueue.main.async {
+                                    self.performSegue(withIdentifier: "login", sender: self)
+                                }
                             }
                         })
                     } else {

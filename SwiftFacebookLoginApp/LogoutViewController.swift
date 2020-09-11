@@ -22,16 +22,21 @@ class LogoutViewController: UIViewController {
         print("ログアウトしました")
         let fbManager = LoginManager()
         // 非同期でログアウト
-        NCMBUser.logOutInBackground { (error) in
-            if (error != nil) {
-                //エラー処理
-                print("Logout error \(String(describing: error))")
-            } else {
+        NCMBUser.logOutInBackground(callback: { result in
+        switch result {
+            case .success:
+                // ログアウトに成功した場合の処理
+                print("ログアウトに成功しました")
                 fbManager.logOut()
-                self.dismiss(animated: true, completion: nil)
+                DispatchQueue.main.async {
+                  self.dismiss(animated: true, completion: nil)
+                }
+            
+            case let .failure(error):
+                // ログアウトに失敗した場合の処理
+                print("ログアウトに失敗しました: \(error)")
             }
-        }
-        
+        })
     }
 
     override func didReceiveMemoryWarning() {

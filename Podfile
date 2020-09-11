@@ -5,7 +5,7 @@ target 'SwiftFacebookLoginApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'FBSDKLoginKit', '~> 6.0.0'
-  pod 'NCMB', :git => 'https://github.com/NIFCloud-mbaas/ncmb_ios.git'
+  pod 'NCMB', :git => 'https://github.com/NIFCLOUD-mbaas/ncmb_swift.git'
 
   # Pods for SwiftFacebookLoginApp
 
