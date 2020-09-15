@@ -9,11 +9,11 @@ PODS:
     - FBSDKLoginKit/Login (= 6.0.0)
   - FBSDKLoginKit/Login (6.0.0):
     - FBSDKCoreKit (~> 6.0.0)
-  - NCMB (3.1.0)
+  - NCMB (1.1.2)
 
 DEPENDENCIES:
   - FBSDKLoginKit (~> 6.0.0)
-  - NCMB (from `https://github.com/NIFCloud-mbaas/ncmb_ios.git`)
+  - NCMB (from `https://github.com/NIFCLOUD-mbaas/ncmb_swift.git`)
 
 SPEC REPOS:
   trunk:
@@ -22,18 +22,18 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   NCMB:
-    :git: https://github.com/NIFCloud-mbaas/ncmb_ios.git
+    :git: https://github.com/NIFCLOUD-mbaas/ncmb_swift.git
 
 CHECKOUT OPTIONS:
   NCMB:
-    :commit: 06072ba57e6ef461cafd20feaa798be0eef0cf8b
-    :git: https://github.com/NIFCloud-mbaas/ncmb_ios.git
+    :commit: be8833647e6b4f4ab154bbd849929692349cb418
+    :git: https://github.com/NIFCLOUD-mbaas/ncmb_swift.git
 
 SPEC CHECKSUMS:
   FBSDKCoreKit: fe738b172590e622c86735b45e20d196848b54df
   FBSDKLoginKit: fa57df1b967fe0e147b25bede6ea4e9cdf4d64be
-  NCMB: c308972109137bf523ec1830bac16de6a31c25f4
+  NCMB: 71a6dc3bce6124739ef9d287fb8811664ae0968b
 
-PODFILE CHECKSUM: 94f603dc1970a0d037369bac9e361e507a5a644f
+PODFILE CHECKSUM: ba3864306ce3adc30545abff6c8589c2bc4b1500
 
 COCOAPODS: 1.9.0

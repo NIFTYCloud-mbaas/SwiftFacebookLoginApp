@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         //********** SDKの初期化 **********
-        NCMB.setApplicationKey(applicationkey, clientKey: clientkey)
+        NCMB.initialize(applicationKey: applicationkey, clientKey: clientkey)
         
         ApplicationDelegate.shared.application( application, didFinishLaunchingWithOptions: launchOptions )
         
